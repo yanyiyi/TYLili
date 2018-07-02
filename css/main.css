@@ -1,0 +1,91 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+.navSet {
+    height: 20%;
+    width: 100%;
+    display: block;
+    background: url("../img/Lili_bk.png") bottom no-repeat;
+    background-size: cover;
+    clear: both;
+}
+
+.rulerDec {
+    width: 100%;
+    height: 15%;
+    background: url("../img/Lili_ruler.png") bottom repeat-x;
+    background-size: contain;
+}
+
+.navWarp {
+    width: 85%;
+    height: 60%;
+    margin: 2.5% auto;
+}
+
+#mainLogo {
+    width: 30%;
+    background: url(../img/Lili_logo.png) no-repeat bottom center;
+    display: block;
+    height: 80%;
+    background-size: contain;
+    float: left;
+}
+
+#navBar {
+    width: 70%;
+    float: left;
+    position: relative;
+    bottom: -50%;
+}
+
+#navBar a {
+    border-left: #000 1px solid;
+    padding: 0% 2.5%;
+}
+
+#navBar a:hover {
+    border-color: #FFF;
+    background-color: #000;
+    color: #FFF;
+    padding: 0% 2.5%;
+}
+
+#navBar a:last-child {
+    border-right: #000 1px solid;
+}
+
+
+
+
+.mainMap {
+    padding: 2.5% 0%;
+    display: block;
+    height: 95%;
+    width: 85%;
+    margin: 0 auto;
+    clear: both;
+}
+
+.decWords {
+    width: 22.5%;
+    float: left;
+    display: block;
+}
+
+.decWords p {
+    line-height: 250%;
+    letter-spacing: 3px;
+}
+
+#map {
+    height: 70%;
+    width: 77.5%;
+    float: left;
+    display: block;
+}
