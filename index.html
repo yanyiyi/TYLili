@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +38,15 @@
 
     <script>
         function initMap() {
+
+            var myLatLng = {
+                lat: 24.9947383,
+                lng: 121.1893604
+            };
+            var image = {
+                url: '../img/sampleICON_01.png',
+                scaledSize: new google.maps.Size(100, 100),
+            };
             // Styles a map in night mode.
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
@@ -186,9 +196,15 @@
                     }
                 ]
             });
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Sample',
+                icon: image,
+            });
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBputq9w31cD2XzhNGVPdzL0x9xGz8xkiM&callback=initMap" async defer></script>
 </body>
-    
+
 </html>
