@@ -11,7 +11,7 @@
                  for (var i = 0; i < dataAmount; i++) {
                      aLatitude[i] = dataLog.feed.entry[i].gsx$lati.$t;
                      aLongtitude[i] = dataLog.feed.entry[i].gsx$longi.$t;
-                     $('#ext').append(aLatitude[i] + aLongtitude[i]);
+                     $('#ext').append("<br>" + aLatitude[i] + "," + aLongtitude[i]);
                  } //end for
              } //end function data
          ); //end get JSON
