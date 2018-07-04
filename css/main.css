@@ -1,3 +1,8 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+    font-family: 'Noto Sans TC';
+}
+
 html,
 body {
     height: 100%;
@@ -6,71 +11,132 @@ body {
     font-size: 1em;
 }
 
+p {
+    font-weight: 100;
+    font-size: 0.8em;
+}
+
 .navSet {
-    height: 20%;
+    height: 200px;
     width: 100%;
     display: block;
-    background: url("../img/Lili_bk.png") bottom no-repeat;
+    background: url("../img/Lili_bk.png") bottom center no-repeat;
     background-size: cover;
     clear: both;
+    position: relative;
 }
 
 .rulerDec {
     width: 100%;
-    height: 15%;
+    height: 30px;
     background: url("../img/Lili_ruler.png") bottom repeat-x;
     background-size: contain;
 }
 
 .navWarp {
-    width: 85%;
-    height: 60%;
-    margin: 2.5% auto;
+    width: 66.7%;
+    height: 110px;
+    margin: 30px auto 40px auto;
+    position: relative;
 }
 
 #mainLogo {
     width: 30%;
-    background: url(../img/Lili_logo.png) no-repeat bottom center;
-    display: block;
+    background: url(../img/Lili_logo.png) no-repeat bottom left;
     height: 80%;
     background-size: contain;
     float: left;
+    position: absolute;
+    top: 0%;
 }
 
 #navBar {
-    width: 70%;
+    width: 65%;
     float: left;
-    position: relative;
-    bottom: -50%;
+    position: absolute;
+    bottom: 2em;
+    right: 0px;
+    padding: 0 2.5%;
+    font-size: 1.1em;
+}
+
+#navBar a:nth-child(1) {
+    background: url(../img/mark_1.png) left no-repeat;
+    background-size: contain;
+}
+
+#navBar a:nth-child(2) {
+    background: url(../img/mark_2.png) left no-repeat;
+    background-size: contain;
+}
+
+#navBar a:nth-child(3) {
+    background: url(../img/mark_3.png) left no-repeat;
+    background-size: contain;
+}
+
+#navBar a:nth-child(4) {
+    background: url(../img/mark_4.png) left no-repeat;
+    background-size: contain;
+}
+
+#navBar a:nth-child(5) {
+    background: url(../img/mark_5.png) left no-repeat;
+    background-size: contain;
 }
 
 #navBar a {
-    border-left: #000 1px solid;
-    padding: 0% 2.5%;
+    padding-left: 1.25em;
+    font-weight: 300;
+    display: inline-block;
+    width: 5em;
+    height: 1.5em;
+    text-align: left;
+    line-height: 1.75em;
+
+}
+
+#navBar a:nth-child(1):hover {
+    background: url(../img/mark_1hover.png) left no-repeat;
+    background-size: contain;
+}
+
+#navBar a:nth-child(2):hover {
+    background: url(../img/mark_2hover.png) left no-repeat;
+    background-size: contain;
+}
+
+#navBar a:nth-child(3):hover {
+    background: url(../img/mark_3hover.png) left no-repeat;
+    background-size: contain;
+}
+
+#navBar a:nth-child(4):hover {
+    background: url(../img/mark_4hover.png) left no-repeat;
+    background-size: contain;
+}
+
+#navBar a:nth-child(5):hover {
+    background: url(../img/mark_5hover.png) left no-repeat;
+    background-size: contain;
 }
 
 #navBar a:hover {
-    border-color: #FFF;
-    background-color: #000;
-    color: #FFF;
-    padding: 0% 2.5%;
-}
-
-#navBar a:last-child {
-    border-right: #000 1px solid;
+    text-decoration: underline;
+    background-size: contain;
 }
 
 .mainMap {
     padding: 2.5% 0%;
     display: block;
     height: 95%;
-    width: 85%;
+    width: 66.7%;
     margin: 0 auto;
     clear: both;
 }
 
 .decWords {
-    width: 22.5%;
+    width: 30%;
     float: left;
     display: block;
 }
@@ -78,11 +144,12 @@ body {
 .decWords p {
     line-height: 250%;
     letter-spacing: 3px;
+    padding: 15px;
 }
 
 #map {
     height: 70%;
-    width: 77.5%;
+    width: 70%;
     float: left;
     display: block;
     -webkit-box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.25);
