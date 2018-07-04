@@ -1,16 +1,46 @@
 function initMap() {
+    var lilis = [];
+    var imglilitype = ['', '../img/icon_blue.png', '../img/icon_lightblue.png', '../img/icon_yellow.png', '../img/icon_red.png', '../img/icon_lime.png'];
+    $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9Wh2xOKOopqDNcISdpE/1/public/values?alt=json', function (dataLog) {
+            console.log("gJson");
+            var dataAmount = dataLog.feed.entry.length;
+            console.log(dataAmount);
+            for (var i = 0; i < dataAmount; i++) {
+                var aName = dataLog.feed.entry[i].gsx$liliname.$t;
+                var aLatitude = dataLog.feed.entry[i].gsx$lati.$t;
+                var aLongtitude = dataLog.feed.entry[i].gsx$longi.$t;
+                var alilitype = dataLog.feed.entry[i].gsx$lilitype.$t;
+                lilis[i] = [aName, aLatitude, aLongtitude, alilitype];
+                console.log(lilis[i]);
+
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: parseFloat(aLatitude),
+                        lng: parseFloat(aLongtitude)
+                    },
+                    map: map,
+                    title: aName,
+                    icon: {
+                        url: imglilitype[alilitype],
+                        scaledSize: new google.maps.Size(140, 200)
+                    },
+
+                });
+            } //end for
+        } //end function data
+    ); //end get JSON
 
     var myLatLng = {
         lat: 24.9947383,
         lng: 121.1893604
     };
-    var lilis = [
-        ['肉圓', 24.9947383, 121.1893604, '../img/icon_lightblue.png'],
-        ['肉圓2', 24.965992, 121.220625, '../img/icon_blue.png'],
-        ['肉圓3', 24.960049, 121.225325, '../img/icon_lime.png'],
-        ['肉圓4', 24.957740, 121.231640, '../img/icon_red.png'],
-        ['肉圓5', 24.954472, 121.235953, '../img/icon_yellow.png']
-    ];
+    //    var lilis = [
+    //        ['肉圓', 24.9947383, 121.1893604, '../img/icon_lightblue.png'],
+    //        ['肉圓2', 24.965992, 121.220625, '../img/icon_blue.png'],
+    //        ['肉圓3', 24.960049, 121.225325, '../img/icon_lime.png'],
+    //        ['肉圓4', 24.957740, 121.231640, '../img/icon_red.png'],
+    //        ['肉圓5', 24.954472, 121.235953, '../img/icon_yellow.png']
+    //    ];
 
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
@@ -160,19 +190,4 @@ function initMap() {
                     }
                 ]
     });
-    for (var i = 0; i < lilis.length; i++) {
-        var lili = lilis[i];
-        var marker = new google.maps.Marker({
-            position: {
-                lat: lili[1],
-                lng: lili[2]
-            },
-            map: map,
-            title: lili[0],
-            icon: {
-                url: lili[3],
-                scaledSize: new google.maps.Size(140, 200)
-            },
-        });
-    }
 }
