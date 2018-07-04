@@ -1,0 +1,34 @@
+@media (max-width: 480px) {
+    .navWarp,
+    .mainMap {
+        width: 98%;
+    }
+}
+
+@media (max-width: 767px) {
+    .navWarp,
+    .mainMap {
+        width: 95%;
+    }
+}
+
+@media (min-width: 768px) {
+    .navWarp,
+    .mainMap {
+        width: 90%;
+    }
+}
+
+@media (min-width: 992px) {
+    .navWarp,
+    .mainMap {
+        width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navWarp,
+    .mainMap {
+        width: 60%;
+    }
+}
