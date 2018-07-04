@@ -7,7 +7,7 @@ function initMap() {
     var lilis = [
         ['肉圓', 24.9947383, 121.1893604, '../img/icon_lightblue.png'],
         ['肉圓2', 24.965992, 121.220625, '../img/icon_blue.png'],
-        ['肉圓3', 24.960049, 121.225325, '../img/icon_limw.png'],
+        ['肉圓3', 24.960049, 121.225325, '../img/icon_lime.png'],
         ['肉圓4', 24.957740, 121.231640, '../img/icon_red.png'],
         ['肉圓5', 24.954472, 121.235953, '../img/icon_yellow.png']
     ];
