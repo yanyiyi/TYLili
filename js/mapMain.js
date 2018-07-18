@@ -22,7 +22,7 @@ function initMap() {
                     title: aName,
                     icon: {
                         url: imglilitype[alilitype],
-                        scaledSize: new google.maps.Size(140, 200)
+                        scaledSize: new google.maps.Size(63, 90)
                     },
 
                 });
