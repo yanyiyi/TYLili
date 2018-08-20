@@ -14,7 +14,7 @@ var imglilitype = ['', '../img/icon_blue.png', '../img/icon_lightblue.png', '../
 $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9Wh2xOKOopqDNcISdpE/1/public/values?alt=json', function (dataLog) {
 
         //        console.log("gJson");
-        var i = GetURLParameter("liliID");
+        var i = GetURLParameter("liliID") - 1;
         //        console.log(i);
         var aName = dataLog.feed.entry[i].gsx$liliname.$t;
         //        var aLatitude = dataLog.feed.entry[i].gsx$lati.$t;
