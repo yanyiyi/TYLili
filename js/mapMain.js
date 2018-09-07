@@ -1,19 +1,28 @@
+var gmarkers = [];
+var markers = [];
+var gmarkersTop = [];
+var markersTop = [];
+var markersUrl = [];
+var filterSwitch = [1, 1, 1, 1, 1, 1];
+
 function initMap() {
     var lilis = [];
-    var imglilitype = ['', '../img/icon_blue.png', '../img/icon_lightblue.png', '../img/icon_yellow.png', '../img/icon_red.png', '../img/icon_lime.png'];
+    var imglilitype = ['', './img/icon_blue.png', './img/icon_lightblue.png', './img/icon_yellow.png', './img/icon_red.png', './img/icon_lime.png'];
     $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9Wh2xOKOopqDNcISdpE/1/public/values?alt=json', function (dataLog) {
             console.log("gJson");
             var dataAmount = dataLog.feed.entry.length;
             console.log(dataAmount);
             for (var i = 0; i < dataAmount; i++) {
+                var aZ = dataLog.feed.entry[i].gsx$z.$t;
                 var aName = dataLog.feed.entry[i].gsx$liliname.$t;
                 var aLatitude = dataLog.feed.entry[i].gsx$lati.$t;
                 var aLongtitude = dataLog.feed.entry[i].gsx$longi.$t;
                 var alilitype = dataLog.feed.entry[i].gsx$lilitype.$t;
-                lilis[i] = [aName, aLatitude, aLongtitude, alilitype];
+                lilis[i] = [aName, aLatitude, aLongtitude, alilitype, aZ];
                 console.log(lilis[i]);
 
                 var marker = new google.maps.Marker({
+                    url: './lili.html?liliID=' + aZ,
                     position: {
                         lat: parseFloat(aLatitude),
                         lng: parseFloat(aLongtitude)
@@ -22,9 +31,36 @@ function initMap() {
                     title: aName,
                     icon: {
                         url: imglilitype[alilitype],
+                        //url: './img/avatar/' + aZ + '.png',
                         scaledSize: new google.maps.Size(63, 90)
                     },
 
+                });
+                var markerTop = new google.maps.Marker({
+                    url: './lili.html?liliID=' + aZ,
+                    position: {
+                        lat: parseFloat(aLatitude),
+                        lng: parseFloat(aLongtitude)
+                    },
+                    map: map,
+                    title: aName,
+                    icon: {
+                        //url: imglilitype[alilitype],
+                        url: './img/avatar_circle/' + aZ + '.png',
+                        scaledSize: new google.maps.Size(50, 50),
+                        anchor: new google.maps.Point(25, 87),
+                    },
+
+                });
+                //                marker2.bindTo("position", marker);
+                markers.push(alilitype);
+                gmarkers.push(marker);
+                markersTop.push(alilitype);
+                gmarkersTop.push(markerTop);
+                markersUrl.push(aZ);
+
+                marker.addListener('click', function () {
+                    location.href = this.url;
                 });
             } //end for
         } //end function data
@@ -190,4 +226,17 @@ function initMap() {
                     }
                 ]
     });
+}
+
+function switchFilter(ind) {
+    filterSwitch[ind] *= -1;
+    for (i = 0; i < markers.length; i++) {
+        if (filterSwitch[ind] < 0) {
+            if (markers[i] == ind) gmarkers[i].setVisible(false);
+            if (markersTop[i] == ind) gmarkersTop[i].setVisible(false);
+        } else {
+            if (markers[i] == ind) gmarkers[i].setVisible(true);
+            if (markersTop[i] == ind) gmarkersTop[i].setVisible(true);
+        }
+    }
 }
