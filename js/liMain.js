@@ -15,6 +15,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9
 
         //        console.log("gJson");
         var i = GetURLParameter("liliID") - 1;
+        var j = GetURLParameter("liliID");
         //        console.log(i);
         var aName = dataLog.feed.entry[i].gsx$liliname.$t;
         //        var aLatitude = dataLog.feed.entry[i].gsx$lati.$t;
@@ -22,5 +23,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9
         var alilitype = dataLog.feed.entry[i].gsx$lilitype.$t;
         //        alert(aName);
         $("#liName").text(aName);
+        var avatarImg = "./img/avatar/" + j + ".png";
+        $("#liImg").attr("src", avatarImg)
     } //end function data
 ); //end get JSON

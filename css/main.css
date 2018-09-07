@@ -159,3 +159,7 @@ p {
     -moz-box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.15);
 }
+
+#liImg {
+    width: 100%;
+}

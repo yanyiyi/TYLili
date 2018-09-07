@@ -3,6 +3,7 @@ var markers = [];
 var gmarkersTop = [];
 var markersTop = [];
 var markersUrl = [];
+var markersUrlTop = [];
 var filterSwitch = [1, 1, 1, 1, 1, 1];
 
 function initMap() {
@@ -58,8 +59,12 @@ function initMap() {
                 markersTop.push(alilitype);
                 gmarkersTop.push(markerTop);
                 markersUrl.push(aZ);
+                markersUrlTop.push(aZ);
 
                 marker.addListener('click', function () {
+                    location.href = this.url;
+                });
+                markerTop.addListener('click', function () {
                     location.href = this.url;
                 });
             } //end for
