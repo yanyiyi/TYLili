@@ -52,13 +52,9 @@ p {
 }
 
 #navBar {
-    width: 65%;
+    width: 30%;
     float: left;
-    position: absolute;
-    bottom: 2em;
-    right: 0px;
-    padding: 0 2.5%;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 #navBar a:nth-child(1) {
@@ -87,13 +83,14 @@ p {
 }
 
 #navBar a {
-    padding-left: 1.15em;
+    margin-bottom: 0.9em;
+    padding-left: 1.5em;
     text-decoration: none;
     color: #111;
     font-weight: 300;
     display: inline-block;
-    width: 6em;
-    height: 1.5em;
+    width: 12em;
+    height: 1.8em;
     text-align: left;
     line-height: 1.75em;
     margin-left: 0.05em;
@@ -144,15 +141,19 @@ p {
 }
 
 .decWords {
-    width: 30%;
-    float: left;
     display: block;
+    width: 65%;
+    float: left;
+    position: absolute;
+    bottom: 2em;
+    right: 0px;
+    padding: 0 2.5%;
 }
 
 .decWords p {
-    line-height: 250%;
-    letter-spacing: 3px;
-    padding: 20px;
+    font-size: 0.35em;
+    line-height: 120%;
+    letter-spacing: 0.3em;
     text-align: justify;
 }
 
@@ -165,6 +166,16 @@ p {
     -moz-box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.15);
 }
+
+#liliMain {
+    width: 70%;
+    float: left;
+    display: block;
+    -webkit-box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.15);
+}
+
 
 #liImg {
     width: 100%;
