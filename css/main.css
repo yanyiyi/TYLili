@@ -54,7 +54,7 @@ p {
 #navBar {
     width: 30%;
     float: left;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 #navBar a:nth-child(1) {
@@ -89,12 +89,24 @@ p {
     color: #111;
     font-weight: 300;
     display: inline-block;
-    width: 12em;
+    width: 100%;
     height: 1.8em;
     text-align: left;
     line-height: 1.75em;
     margin-left: 0.05em;
-    letter-spacing: 1px;
+    letter-spacing: 0.2em;
+}
+
+footer {
+    padding: 2.5% 5%;
+    clear: both;
+    width: 100%;
+    font-weight: 100;
+    text-align: center;
+    line-height: 1.5em;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    color: #888;
 }
 
 #navBar a:nth-child(1):hover {
@@ -151,11 +163,11 @@ p {
 }
 
 .decWords p {
-    font-size: 0.7em;
+    font-size: 0.8em;
     line-height: 150%;
-    letter-spacing: 0.2ßem;
+    letter-spacing: 0.2em;
     text-align: justify;
-    color: #888;
+    color: #666;
 }
 
 #map {
