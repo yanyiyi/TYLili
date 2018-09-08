@@ -10,6 +10,13 @@
     .mainMap {
         width: 95%;
     }
+    #navBar,
+    .decWords {
+        display: none;
+    }
+    #liliMain {
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) {
