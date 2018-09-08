@@ -151,10 +151,11 @@ p {
 }
 
 .decWords p {
-    font-size: 0.35em;
-    line-height: 120%;
-    letter-spacing: 0.3em;
+    font-size: 0.7em;
+    line-height: 150%;
+    letter-spacing: 0.2ßem;
     text-align: justify;
+    color: #888;
 }
 
 #map {
