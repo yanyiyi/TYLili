@@ -28,6 +28,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9
         var alilitype = dataLog.feed.entry[i].gsx$lilitype.$t;
         var aStory = dataLog.feed.entry[i].gsx$story.$t;
         //        alert(aName);
+        $("title").append("－No." + j + " LiLi：" + aName);
         $("#liName").text(aName);
         var avatarImg = "./img/avatar/" + j + ".png";
         $("#liImg").attr("src", avatarImg);
