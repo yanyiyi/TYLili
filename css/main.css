@@ -239,6 +239,19 @@ p {
     background-color: #f7f7f4;
 }
 
+.aContext {
+    padding: 2%;
+    text-align: justify;
+    font-size: 1.2em;
+    line-height: 1.4em;
+    font-weight: 500;
+}
+
+.aContext p {
+    text-indent: 2.4em;
+    margin: 2%;
+}
+
 .oImg {
     width: 50%;
     height: 100%;
