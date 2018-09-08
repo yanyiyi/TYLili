@@ -37,7 +37,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9
         if (alilitype == 3) $(".tagSet").append("<img src='./img/mark_3.png'/>國民政府來台");
         if (alilitype == 4) $(".tagSet").append("<img src='./img/mark_4.png'/>城市蓬勃發展");
         if (alilitype == 5) $(".tagSet").append("<img src='./img/mark_5.png'/>城市多元蛻變");
-        $("#liliMain iframe").attr("src", "https://www.youtube.com/embed/" + aYTLink);
+        $("#liliMain iframe.youtube-player").attr("src", "https://www.youtube.com/embed/" + aYTLink);
         var aStorySplit = aStory.split(" ");
         for (var aSS = 0; aSS < aStorySplit.length; aSS++) {
             $(".aContext").append("<p>" + aStorySplit[aSS] + "</p>");
