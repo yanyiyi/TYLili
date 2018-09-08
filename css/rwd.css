@@ -17,6 +17,10 @@
     #liliMain {
         width: 100%;
     }
+    .oPhotos {
+        width: 97%;
+        height: 250px;
+    }
 }
 
 @media (min-width: 768px) {

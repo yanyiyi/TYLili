@@ -100,7 +100,7 @@ p {
 footer {
     padding: 2.5% 5%;
     clear: both;
-    width: 100%;
+    width: 90%;
     font-weight: 100;
     text-align: center;
     line-height: 1.5em;
@@ -260,7 +260,7 @@ footer {
 }
 
 .aContext p {
-    text-indent: 2.4em;
+    text-indent: 1.8em;
     margin: 2%;
 }
 

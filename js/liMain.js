@@ -17,6 +17,10 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9
         var i = GetURLParameter("liliID") - 1;
         var j = GetURLParameter("liliID");
         //        console.log(i);
+        if (j == null) {
+            i = Math.floor(Math.random() * (50 - 1));
+            j = i + 1;
+        }
         var aName = dataLog.feed.entry[i].gsx$liliname.$t;
         var aWhere = dataLog.feed.entry[i].gsx$wherecome.$t;
         var aWhen = dataLog.feed.entry[i].gsx$whencome.$t;
