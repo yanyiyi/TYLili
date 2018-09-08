@@ -10,7 +10,7 @@ function initMap() {
     var lilis = [];
     var imglilitype = ['', './img/icon_blue.png', './img/icon_lightblue.png', './img/icon_yellow.png', './img/icon_red.png', './img/icon_lime.png'];
     $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9Wh2xOKOopqDNcISdpE/1/public/values?alt=json', function (dataLog) {
-            console.log("gJson");
+            //            console.log("gJson");
             var dataAmount = dataLog.feed.entry.length;
             console.log(dataAmount);
             for (var i = 0; i < dataAmount; i++) {

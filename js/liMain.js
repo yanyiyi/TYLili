@@ -18,12 +18,42 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9
         var j = GetURLParameter("liliID");
         //        console.log(i);
         var aName = dataLog.feed.entry[i].gsx$liliname.$t;
-        //        var aLatitude = dataLog.feed.entry[i].gsx$lati.$t;
-        //        var aLongtitude = dataLog.feed.entry[i].gsx$longi.$t;
+        var aWhere = dataLog.feed.entry[i].gsx$wherecome.$t;
+        var aWhen = dataLog.feed.entry[i].gsx$whencome.$t;
+        var aYTLink = dataLog.feed.entry[i].gsx$ytlink.$t;
         var alilitype = dataLog.feed.entry[i].gsx$lilitype.$t;
         //        alert(aName);
         $("#liName").text(aName);
         var avatarImg = "./img/avatar/" + j + ".png";
-        $("#liImg").attr("src", avatarImg)
+        $("#liImg").attr("src", avatarImg);
+        $(".tagSet").append(aWhen + " " + aWhere + "<br/>");
+        if (alilitype == 1) $(".tagSet").append("<img src='./img/mark_1.png'/>清代時期");
+        if (alilitype == 2) $(".tagSet").append("<img src='./img/mark_2.png'/>日治時期");
+        if (alilitype == 3) $(".tagSet").append("<img src='./img/mark_3.png'/>國民政府來台");
+        if (alilitype == 4) $(".tagSet").append("<img src='./img/mark_4.png'/>城市蓬勃發展");
+        if (alilitype == 5) $(".tagSet").append("<img src='./img/mark_5.png'/>城市多元蛻變");
+        $("#liliMain iframe").attr("src", "https://www.youtube.com/embed/" + aYTLink);
+        var oldPhotoExist = dataLog.feed.entry[i].gsx$photoam.$t;
+        var photolilis = [];
+        if (oldPhotoExist > 0) $.getJSON('https://spreadsheets.google.com/feeds/list/1pqIU16Nbk5so8FRx8USA5nvacA2gBLVahnVb0dIe9z8/1/public/values?alt=json', function (photoLog) {
+            var photoAmount = photoLog.feed.entry.length;
+            console.log(photoAmount, j);
+            var zPhotoAmount = 0;
+            for (var k = 0; k < photoAmount; k++) {
+                var pID = photoLog.feed.entry[k].gsx$p.$t;
+                //                console.log(zID);
+                if (pID === j) {
+                    zPhotoAmount++;
+                    console.log(zPhotoAmount, oldPhotoExist);
+                    var pEvent = photoLog.feed.entry[k].gsx$event.$t;
+                    var pPoint = photoLog.feed.entry[k].gsx$point.$t;
+                    var pTime = photoLog.feed.entry[k].gsx$time.$t;
+                    var pFileid = photoLog.feed.entry[k].gsx$fileid.$t;
+                    console.log(pID, pEvent, pPoint, pTime);
+                    $("#oldPhoto").append("<div class='oPhotos'><div class='oImg'><img src='./img/oldphoto/" + pID + "/" + pFileid + ".jpg'/></div><div class='oContent'>" + pEvent + "<br/><span class='pWid'>" + pPoint + "<br/>" + pTime + "</span></div></div>");
+                }
+            }
+        }); //end of photoLog
+
     } //end function data
 ); //end get JSON
