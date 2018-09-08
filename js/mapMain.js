@@ -33,7 +33,7 @@ function initMap() {
                     icon: {
                         url: imglilitype[alilitype],
                         //url: './img/avatar/' + aZ + '.png',
-                        scaledSize: new google.maps.Size(63, 90)
+                        scaledSize: new google.maps.Size(70, 100)
                     },
 
                 });
@@ -48,8 +48,8 @@ function initMap() {
                     icon: {
                         //url: imglilitype[alilitype],
                         url: './img/avatar_circle/' + aZ + '.png',
-                        scaledSize: new google.maps.Size(50, 50),
-                        anchor: new google.maps.Point(25, 87),
+                        scaledSize: new google.maps.Size(52, 52),
+                        anchor: new google.maps.Point(26, 95),
                     },
 
                 });
