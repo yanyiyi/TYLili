@@ -21,10 +21,33 @@
         }
         gtag('js', new Date());
         gtag('config', 'UA-123979223-1');
+
     </script>
 </head>
 
 <body>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '422395494952518',
+                xfbml: true,
+                version: 'v3.1'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+    </script>
     <nav class="navSet">
 
         <div class="rulerDec">
@@ -58,7 +81,8 @@
                 <img id="liImg" />
             </div>
             <div class="aContext">
-
+                <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+                </div>
             </div>
             <div id="oldPhoto">
 
