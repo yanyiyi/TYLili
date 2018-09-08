@@ -128,6 +128,10 @@ p {
     background-size: contain;
 }
 
+#navBar .switchOff {
+    opacity: 0.3;
+}
+
 .mainMap {
     padding: 2.5% 0%;
     display: block;

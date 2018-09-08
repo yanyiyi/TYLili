@@ -239,9 +239,11 @@ function switchFilter(ind) {
         if (filterSwitch[ind] < 0) {
             if (markers[i] == ind) gmarkers[i].setVisible(false);
             if (markersTop[i] == ind) gmarkersTop[i].setVisible(false);
+            $("#navBar a:nth-child(" + ind + ")").addClass("switchOff");
         } else {
             if (markers[i] == ind) gmarkers[i].setVisible(true);
             if (markersTop[i] == ind) gmarkersTop[i].setVisible(true);
+            $("#navBar a:nth-child(" + ind + ")").removeClass("switchOff");
         }
     }
 }
