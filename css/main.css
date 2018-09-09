@@ -330,3 +330,8 @@ footer {
     padding-top: 0.5em;
     font-weight: 400;
 }
+
+.fb-like {
+    width: 48%;
+    margin: 0 2% 0 50%;
+}
