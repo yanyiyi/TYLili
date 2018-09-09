@@ -242,9 +242,19 @@ footer {
     top: 0;
 }
 
-.warpRatio img {
+
+.warpCenter {
     width: 100%;
+    height: 100%;
     position: absolute;
+    text-align: center;
+}
+
+.warpRatio img {
+    height: 95%;
+    position: relative;
+
+    margin: 0 auto;
 }
 
 .warpImg {
