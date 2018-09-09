@@ -119,6 +119,22 @@ footer {
     color: #888;
 }
 
+.footerIcon {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    opacity: 0.6;
+}
+
+.footerIcon:hover {
+    opacity: 1;
+}
+
+.footerIcon img {
+    width: 95%;
+    display: block;
+}
+
 #navBar a:nth-child(1):hover,
 .navBar a:nth-child(1):hover {
     background: url(../img/mark_1hover.png) left no-repeat;
@@ -385,7 +401,7 @@ a.lilisSet {
 */
 
 .navCenter {
-    width: 15%;
+    width: 10%;
     height: 100%;
     display: block;
     margin: 0px;
