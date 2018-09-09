@@ -27,11 +27,27 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9
         var aYTLink = dataLog.feed.entry[i].gsx$ytlink.$t;
         var alilitype = dataLog.feed.entry[i].gsx$lilitype.$t;
         var aStory = dataLog.feed.entry[i].gsx$story.$t;
+        var aIntro = dataLog.feed.entry[i].gsx$intro.$t;
         //        alert(aName);
+
         $("title").append("－No." + j + " LiLi：" + aName);
+        $('meta[itemprop="name"]').attr("content", "LiLi's 我的壢歷史－No." + j + " LiLi：" + aName);
+        $('meta[name="twitter:title"]').attr("content", "LiLi's 我的壢歷史－No." + j + " LiLi：" + aName);
+        $('meta[property="og:title"]').attr("content", "LiLi's 我的壢歷史－No." + j + " LiLi：" + aName);
+        $('meta[property="og:description"]').attr("content", aIntro);
+        $('meta[name="twitter:description"]').attr("content", aIntro);
+        $('meta[name="description"]').attr("content", aIntro);
+        $('meta[itemprop="description"]').attr("content", aIntro);
         $("#liName").text(aName);
         var avatarImg = "./img/avatar/" + j + ".png";
+        var avatarImgOG = "https://lili.tyc.land/img/avatar/" + j + ".png";
         $("#liImg").attr("src", avatarImg);
+        $('meta[property="og:image"]').attr("content", avatarImgOG);
+        $('meta[name="twitter:image:src"]').attr("content", avatarImgOG);
+        $('meta[name="twitter:card"]').attr("content", avatarImgOG);
+        $('meta[itemprop="image"]').attr("content", avatarImgOG);
+        $('meta[property="og:url"]').attr("content", "https://lili.tyc.land/lili.html?liliID=" + j);
+
         $(".tagSet").append(aWhen + " " + aWhere + "<br/>");
         if (alilitype == 1) $(".tagSet").append("<a href='./index.html?liliType=1'><img src='./img/mark_1.png'/>清代時期</a>");
         if (alilitype == 2) $(".tagSet").append("<a href='./index.html?liliType=2'><img src='./img/mark_2.png'/>日治時期</a>");
