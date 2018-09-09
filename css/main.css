@@ -57,32 +57,38 @@ p {
     font-size: 1em;
 }
 
-#navBar a:nth-child(1) {
+#navBar a:nth-child(1),
+.navBar a:nth-child(1) {
     background: url(../img/mark_1.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a:nth-child(2) {
+#navBar a:nth-child(2),
+.navBar a:nth-child(2) {
     background: url(../img/mark_2.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a:nth-child(3) {
+#navBar a:nth-child(3),
+.navBar a:nth-child(3) {
     background: url(../img/mark_3.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a:nth-child(4) {
+#navBar a:nth-child(4),
+.navBar a:nth-child(4) {
     background: url(../img/mark_4.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a:nth-child(5) {
+#navBar a:nth-child(5),
+.navBar a:nth-child(5) {
     background: url(../img/mark_5.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a {
+#navBar a,
+.navBar a {
     margin-bottom: 0.9em;
     padding-left: 1.5em;
     text-decoration: none;
@@ -97,6 +103,10 @@ p {
     letter-spacing: 0.2em;
 }
 
+.navBar a {
+    margin-left: 0px;
+}
+
 footer {
     padding: 2.5% 5%;
     clear: both;
@@ -109,32 +119,38 @@ footer {
     color: #888;
 }
 
-#navBar a:nth-child(1):hover {
+#navBar a:nth-child(1):hover,
+.navBar a:nth-child(1):hover {
     background: url(../img/mark_1hover.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a:nth-child(2):hover {
+#navBar a:nth-child(2):hover,
+.navBar a:nth-child(2):hover {
     background: url(../img/mark_2hover.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a:nth-child(3):hover {
+#navBar a:nth-child(3):hover,
+.navBar a:nth-child(3):hover {
     background: url(../img/mark_3hover.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a:nth-child(4):hover {
+#navBar a:nth-child(4):hover,
+.navBar a:nth-child(4):hover {
     background: url(../img/mark_4hover.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a:nth-child(5):hover {
+#navBar a:nth-child(5):hover,
+.navBar a:nth-child(5):hover {
     background: url(../img/mark_5hover.png) left no-repeat;
     background-size: contain;
 }
 
-#navBar a:hover {
+#navBar a:hover,
+.navBar a:hover {
     text-decoration: underline;
     background-size: contain;
 }
@@ -204,10 +220,11 @@ footer {
 
 #liTitleSet h1,
 .liTitleSet h1 {
-    font-size: 2.4em;
+    font-size: 1.8em;
     padding: 2%;
     width: 96%;
     position: relative;
+    letter-spacing: 0.025em;
 }
 
 #liTitleSet .tagSet,
@@ -217,17 +234,26 @@ footer {
     position: absolute;
     right: 0px;
     text-align: right;
-    font-size: 1em;
+    font-size: 0.9em;
     line-height: 1.2em;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     top: 0px;
 }
 
 .tagSet img,
 .warpRatio .tagSet img {
-    height: 1.5em;
+    height: 1.2em;
     padding-right: 0.25em;
     vertical-align: sub;
+}
+
+.tagSet a {
+    text-decoration: none;
+    color: #111;
+}
+
+.tagSet a:hover {
+    text-decoration: underline;
 }
 
 .oPhotos {
@@ -351,6 +377,93 @@ a.lilisSet {
 }
 
 .fb-like {
-    width: 96%;
-    margin: 0 2% 0 2%;
+    width: 80%;
+    margin: 0 10% 0 10%;
+}
+
+/*nav
+*/
+
+.navCenter {
+    width: 4%;
+    height: 100%;
+    display: block;
+    margin: 0px;
+    text-align: center;
+    background-image: url(../img/toggle_2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    opacity: 0.5;
+    position: absolute;
+    z-index: 50;
+    right: 0;
+}
+
+.navCenter:hover {
+    background-position: 50% 55%;
+    opacity: 1;
+}
+
+.listBox {
+    background-color: rgba(250, 250, 250, 0.9);
+    position: absolute;
+    display: block;
+    clear: both;
+    width: 100%;
+    opacity: 10;
+    top: -9000%;
+    z-index: 35;
+    text-align: center;
+}
+
+.listBox a {
+    text-align: center;
+    width: 50%;
+}
+
+
+.listBox a:hover {
+    text-align: center;
+}
+
+.navToogle {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0;
+}
+
+.navToogle:checked + .navCenter {
+    background-image: url(../img/toggle_1.svg);
+}
+
+.navToogle:checked ~ .listBox {
+    animation: backgroundFadeInlistBox 1s forwards;
+}
+
+.navToogle:unchecked ~ .listBox {
+    animation: backgroundFadeOutlistBox 1s forwards;
+}
+
+@keyframes backgroundFadeInlistBox {
+    from {
+        top: -500%;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        top: 100%;
+    }
+}
+
+@keyframes backgroundFadeOutlistBox {
+    from {
+        opacity: 1;
+        top: 100%;
+    }
+    to {
+        opacity: 0;
+        top: -500%;
+    }
 }

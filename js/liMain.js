@@ -33,11 +33,11 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9
         var avatarImg = "./img/avatar/" + j + ".png";
         $("#liImg").attr("src", avatarImg);
         $(".tagSet").append(aWhen + " " + aWhere + "<br/>");
-        if (alilitype == 1) $(".tagSet").append("<img src='./img/mark_1.png'/>清代時期");
-        if (alilitype == 2) $(".tagSet").append("<img src='./img/mark_2.png'/>日治時期");
-        if (alilitype == 3) $(".tagSet").append("<img src='./img/mark_3.png'/>國民政府來台");
-        if (alilitype == 4) $(".tagSet").append("<img src='./img/mark_4.png'/>城市蓬勃發展");
-        if (alilitype == 5) $(".tagSet").append("<img src='./img/mark_5.png'/>城市多元蛻變");
+        if (alilitype == 1) $(".tagSet").append("<a href='./index.html?liliType=1'><img src='./img/mark_1.png'/>清代時期</a>");
+        if (alilitype == 2) $(".tagSet").append("<a href='./index.html?liliType=2'><img src='./img/mark_2.png'/>日治時期</a>");
+        if (alilitype == 3) $(".tagSet").append("<a href='./index.html?liliType=3'><img src='./img/mark_3.png'/>國民政府來台</a>");
+        if (alilitype == 4) $(".tagSet").append("<a href='./index.html?liliType=4'><img src='./img/mark_4.png'/>城市蓬勃發展</a>");
+        if (alilitype == 5) $(".tagSet").append("<a href='./index.html?liliType=5'><img src='./img/mark_5.png'/>城市多元蛻變</a>");
         $("#liliMain iframe.youtube-player").attr("src", "https://www.youtube.com/embed/" + aYTLink);
         var aStorySplit = aStory.split(" ");
         for (var aSS = 0; aSS < aStorySplit.length; aSS++) {
