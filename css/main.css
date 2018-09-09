@@ -189,19 +189,29 @@ footer {
     box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.15);
 }
 
-#liTitleSet {
+#liTitleSet,
+.liTitleSet {
     width: 100%;
     position: relative;
 }
 
-#liTitleSet h1 {
+#liliList .liTitleSet {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+#liTitleSet h1,
+.liTitleSet h1 {
     font-size: 2.4em;
     padding: 2%;
     width: 96%;
     position: relative;
 }
 
-#liTitleSet .tagSet {
+#liTitleSet .tagSet,
+.liTitleSet .tagSet {
     width: 96%;
     padding: 2%;
     position: absolute;
@@ -213,7 +223,8 @@ footer {
     top: 0px;
 }
 
-.tagSet img {
+.tagSet img,
+.warpRatio .tagSet img {
     height: 1.5em;
     padding-right: 0.25em;
     vertical-align: sub;
@@ -232,6 +243,15 @@ footer {
     padding-bottom: 56.26%;
     overflow: hidden;
     margin: 2%;
+    display: block;
+}
+
+a.lilisSet {
+    color: #333;
+}
+
+#liliList .warpRatio {
+    padding-bottom: 42.26%;
 }
 
 .warpRatio iframe {
@@ -253,7 +273,6 @@ footer {
 .warpRatio img {
     height: 95%;
     position: relative;
-
     margin: 0 auto;
 }
 

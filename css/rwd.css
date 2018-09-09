@@ -58,7 +58,9 @@
     .modeMobile {
         display: none;
     }
-
+    #liliList {
+        display: none;
+    }
 }
 
 @media (min-width: 992px) {

@@ -1,3 +1,13 @@
+function GetURLParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
+};
 var gmarkers = [];
 var markers = [];
 var gmarkersTop = [];
@@ -10,17 +20,37 @@ function initMap() {
     var lilis = [];
     var imglilitype = ['', './img/icon_blue.png', './img/icon_lightblue.png', './img/icon_yellow.png', './img/icon_red.png', './img/icon_lime.png'];
     $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9Wh2xOKOopqDNcISdpE/1/public/values?alt=json', function (dataLog) {
+            var ltype = GetURLParameter("liliType");
+
             //            console.log("gJson");
             var dataAmount = dataLog.feed.entry.length;
             console.log(dataAmount);
             for (var i = 0; i < dataAmount; i++) {
+                if (i == dataAmount - 1) $(".lilisSet:first").remove();
                 var aZ = dataLog.feed.entry[i].gsx$z.$t;
                 var aName = dataLog.feed.entry[i].gsx$liliname.$t;
                 var aLatitude = dataLog.feed.entry[i].gsx$lati.$t;
                 var aLongtitude = dataLog.feed.entry[i].gsx$longi.$t;
                 var alilitype = dataLog.feed.entry[i].gsx$lilitype.$t;
-                lilis[i] = [aName, aLatitude, aLongtitude, alilitype, aZ];
-                console.log(lilis[i]);
+                var aWhere = dataLog.feed.entry[i].gsx$wherecome.$t;
+                var aWhen = dataLog.feed.entry[i].gsx$whencome.$t;
+                var aI = i + 1;
+                var avatarImg = "./img/avatar/" + aI + ".png";
+                //                lilis[i] = [aName, aLatitude, aLongtitude, alilitype, aZ];
+                //                console.log(lilis[i]);
+
+                if (ltype == alilitype || ltype == null) {
+                    $(".lilisSet:first").clone().appendTo("#liliList");
+                    $(".lilisSet:last").attr("href", "./lili.html?liliID=" + aZ);
+                    $(".lilisSet:last .liName").text(aName);
+                    $(".lilisSet:last .liImg").attr("src", avatarImg);
+                    $(".lilisSet:last .tagSet").html(aWhen + " " + aWhere + "<br/>");
+                    if (alilitype == 1) $(".lilisSet:last .tagSet").append("<img src='./img/mark_1.png'/>清代時期");
+                    if (alilitype == 2) $(".lilisSet:last .tagSet").append("<img src='./img/mark_2.png'/>日治時期");
+                    if (alilitype == 3) $(".lilisSet:last .tagSet").append("<img src='./img/mark_3.png'/>國民政府來台");
+                    if (alilitype == 4) $(".lilisSet:last .tagSet").append("<img src='./img/mark_4.png'/>城市蓬勃發展");
+                    if (alilitype == 5) $(".lilisSet:last .tagSet").append("<img src='./img/mark_5.png'/>城市多元蛻變");
+                }
 
                 var marker = new google.maps.Marker({
                     url: './lili.html?liliID=' + aZ,
@@ -68,6 +98,7 @@ function initMap() {
                     location.href = this.url;
                 });
             } //end for
+            checkLiliType();
         } //end function data
     ); //end get JSON
 
@@ -244,6 +275,18 @@ function switchFilter(ind) {
             if (markers[i] == ind) gmarkers[i].setVisible(true);
             if (markersTop[i] == ind) gmarkersTop[i].setVisible(true);
             $("#navBar a:nth-child(" + ind + ")").removeClass("switchOff");
+        }
+    }
+}
+
+function checkLiliType() {
+    var litype = GetURLParameter("liliType");
+    if (litype != null) {
+        console.log(litype);
+        for (var z = 1; z <= 5; z++) {
+            if (z != litype) {
+                switchFilter(z);
+            }
         }
     }
 }
