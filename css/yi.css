@@ -1,0 +1,33 @@
+#navBar a:nth-child(1):hover,
+.navBar a:nth-child(1):hover,
+#navBar a:nth-child(1),
+.navBar a:nth-child(1),
+#navBar a:nth-child(2):hover,
+.navBar a:nth-child(2):hover,
+#navBar a:nth-child(2),
+.navBar a:nth-child(2),
+#navBar a:nth-child(3):hover,
+.navBar a:nth-child(3):hover,
+#navBar a:nth-child(3),
+.navBar a:nth-child(3),
+#navBar a:nth-child(4):hover,
+.navBar a:nth-child(4):hover,
+#navBar a:nth-child(4),
+.navBar a:nth-child(4),
+#navBar a:nth-child(5):hover,
+.navBar a:nth-child(5):hover,
+#navBar a:nth-child(5),
+.navBar a:nth-child(5) {
+    background: none;
+}
+
+.listBox a {
+    padding: 0;
+    text-align: center;
+    width: 45%;
+}
+
+#mainLogo {
+
+    background-image: url(../img/yi.png)
+}

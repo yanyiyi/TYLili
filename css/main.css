@@ -243,6 +243,13 @@ footer {
     letter-spacing: 0.025em;
 }
 
+h2 {
+    font-size: 0.9em;
+    line-height: 1.2em;
+    letter-spacing: 0.15em;
+    padding: 2% 0;
+}
+
 #liTitleSet .tagSet,
 .liTitleSet .tagSet {
     width: 96%;
