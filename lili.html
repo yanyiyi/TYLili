@@ -43,6 +43,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./js/liMain.js"></script>
     <script src="./js/lightbox.min.js"></script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123979223-1"></script>
     <script>
@@ -137,7 +138,15 @@
 
         </footer>
     </section>
+    <script>
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': "老照片 %1 / %2",
+            'alwaysShowNavOnTouchDevices': true
+        })
 
+    </script>
 </body>
 
 </html>
