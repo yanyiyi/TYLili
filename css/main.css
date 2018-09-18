@@ -279,13 +279,6 @@ h2 {
     text-decoration: underline;
 }
 
-.oPhotos {
-    width: 47%;
-    height: 100px;
-    margin: 1.5%;
-    overflow: hidden;
-    float: left;
-}
 
 .warpRatio {
     position: relative;
@@ -343,33 +336,41 @@ a.lilisSet {
 }
 
 .oImg {
-    width: 50%;
+    width: 100%;
     height: 100%;
     position: relative;
     background-color: #444;
     text-align: center;
     overflow: hidden;
+}
+
+.oPhotos {
+    width: 47%;
+    height: 150px;
+    margin: 1.5%;
+    overflow: hidden;
     float: left;
+    position: relative;
 }
 
-.oPhotos:nth-child(5n + 1) {
-    background-color: #6e7b8f;
+.oPhotos:nth-child(5n + 1) .oContent {
+    background-color: #6e7b8f99;
 }
 
-.oPhotos:nth-child(5n + 2) {
-    background-color: #f4c256;
+.oPhotos:nth-child(5n + 2) .oContent {
+    background-color: #f4c25699;
 }
 
-.oPhotos:nth-child(5n + 3) {
-    background-color: #89c9cb;
+.oPhotos:nth-child(5n + 3) .oContent {
+    background-color: #89c9cb99;
 }
 
-.oPhotos:nth-child(5n + 4) {
-    background-color: #9ec6a5;
+.oPhotos:nth-child(5n + 4) .oContent {
+    background-color: #9ec6a599;
 }
 
-.oPhotos:nth-child(5n + 5) {
-    background-color: #ef6960;
+.oPhotos:nth-child(5n + 5) .oContent {
+    background-color: #ef696099;
 }
 
 
@@ -385,12 +386,14 @@ a.lilisSet {
     font-size: 0.9em;
     font-weight: 200;
     color: #FFF;
-    width: 45%;
-    height: 98%;
-    float: left;
-    padding: 5% 2.5%;
+    width: 100%;
+    min-height: 15%;
+    padding: 2% 2.5%;
     letter-spacing: 0.1em;
     line-height: 1.2;
+    position: absolute;
+    bottom: 0px;
+    z-index: 75;
 }
 
 .pWid {

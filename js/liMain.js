@@ -76,7 +76,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9
                     var pTime = photoLog.feed.entry[k].gsx$time.$t;
                     var pFileid = photoLog.feed.entry[k].gsx$fileid.$t;
                     console.log(pID, pEvent, pPoint, pTime);
-                    $("#oldPhoto").append("<div class='oPhotos'><div class='oImg'><img src='./img/oldphoto/" + pID + "/" + pFileid + ".jpg'/></div><div class='oContent'>" + pEvent + "<br/><span class='pWid'>" + pPoint + "<br/>" + pTime + "</span></div></div>");
+                    $("#oldPhoto").append("<div class='oPhotos'><div class='oImg'><img src='./img/oldphoto/" + pID + "/" + pFileid + ".jpg'/></div><div class='oContent'>" + pEvent + "<br/><span class='pWid'>" + pPoint + "・" + pTime + "</span></div></div>");
                 }
             }
         }); //end of photoLog
