@@ -11,7 +11,7 @@ function GetURLParameter(sParam) {
 
 var lilis = [];
 var imglilitype = ['', '../img/icon_blue.png', '../img/icon_lightblue.png', '../img/icon_yellow.png', '../img/icon_red.png', '../img/icon_lime.png'];
-$.getJSON('https://spreadsheets.google.com/feeds/list/1eUgqe2z8gL1d9GrY2LwpAAxW9Wh2xOKOopqDNcISdpE/1/public/values?alt=json', function (dataLog) {
+$.getJSON('https://script.google.com/macros/s/AKfycbyaSXtwSd0y7S9IHBLBZOeBk3yCmy-c4MlC4fp4iImc/dev', function (dataLog) {
 
         //        console.log("gJson");
         var i = GetURLParameter("liliID") - 1;
