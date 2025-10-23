@@ -57,6 +57,19 @@ var filterSwitch = [1, 1, 1, 1, 1, 1];
 // === 主程式 ===
 function initMap() {
   const imglilitype = ['', './img/icon_blue.png', './img/icon_lightblue.png', './img/icon_yellow.png', './img/icon_red.png', './img/icon_lime.png'];
+  const typeBadges = {
+    1: { icon: "./img/mark_1.png", label: "清國時期" },
+    2: { icon: "./img/mark_2.png", label: "日治時期" },
+    3: { icon: "./img/mark_3.png", label: "國民政府來台" },
+    4: { icon: "./img/mark_4.png", label: "城市蓬勃發展" },
+    5: { icon: "./img/mark_5.png", label: "城市多元蛻變" }
+  };
+
+  const listEl = document.getElementById('liliList');
+  const listTemplate = listEl?.querySelector('.lilisSet')?.cloneNode(true) || null;
+  if (listEl) {
+    listEl.textContent = '';
+  }
 
   // 1) 先建立地圖（避免資料 callback 超車）
   const map = new google.maps.Map(document.getElementById('map'), {
@@ -94,6 +107,8 @@ function initMap() {
       const rows = normalizeRows(dataLog);
       console.log('筆數：', rows.length);
 
+      const listFragment = document.createDocumentFragment();
+
       for (let i = 0; i < rows.length; i++) {
         const row = rows[i];
 
@@ -105,30 +120,60 @@ function initMap() {
         const alilitypeNum = Math.max(1, Math.min(5, parseInt(row.lilitype, 10) || 1));
         const aWhere = row.wherecome || '';
         const aWhen = row.whencome || '';
-        const avatarImg = "./img/avatar/" + (i + 1) + ".png";
+        const sanitizedId = encodeURIComponent(aZ);
 
         // 無座標就跳過
         if (!isFinite(aLatitude) || !isFinite(aLongtitude)) continue;
 
         // 右側清單：若有篩選參數，就只顯示該類
         if (ltypeParam === null || String(alilitypeNum) === ltypeParam) {
-          if ($(".lilisSet").length > 0) {
-            $(".lilisSet:first").clone().appendTo("#liliList");
-            $(".lilisSet:last").attr("href", "./lili.html?liliID=" + aZ);
-            $(".lilisSet:last .liName").text(aName);
-            $(".lilisSet:last .liImg").attr("src", avatarImg);
-            $(".lilisSet:last .tagSet").html(aWhen + "  " + aWhere + "<br/>");
-            if (alilitypeNum === 1) $(".lilisSet:last .tagSet").append("<img src='./img/mark_1.png'/>清國時期");
-            if (alilitypeNum === 2) $(".lilisSet:last .tagSet").append("<img src='./img/mark_2.png'/>日本時期");
-            if (alilitypeNum === 3) $(".lilisSet:last .tagSet").append("<img src='./img/mark_3.png'/>國民政府來台");
-            if (alilitypeNum === 4) $(".lilisSet:last .tagSet").append("<img src='./img/mark_4.png'/>城市蓬勃發展");
-            if (alilitypeNum === 5) $(".lilisSet:last .tagSet").append("<img src='./img/mark_5.png'/>城市多元蛻變");
+          if (listEl && listTemplate) {
+            const item = listTemplate.cloneNode(true);
+            item.setAttribute('href', './lili.html?liliID=' + sanitizedId);
+
+            const nameEl = item.querySelector('.liName');
+            if (nameEl) nameEl.textContent = aName;
+
+            const imgEl = item.querySelector('.liImg');
+            if (imgEl) {
+              imgEl.setAttribute('src', './img/avatar/' + sanitizedId + '.png');
+              imgEl.setAttribute('alt', aName ? aName + ' 的肖像' : 'LiLi 肖像');
+              imgEl.setAttribute('loading', 'lazy');
+              imgEl.setAttribute('decoding', 'async');
+            }
+
+            const tagSetEl = item.querySelector('.tagSet');
+            if (tagSetEl) {
+              tagSetEl.textContent = '';
+              const infoText = (aWhen + ' ' + aWhere).trim();
+              if (infoText) {
+                const infoSpan = document.createElement('span');
+                infoSpan.textContent = infoText;
+                tagSetEl.appendChild(infoSpan);
+                tagSetEl.appendChild(document.createElement('br'));
+              }
+
+              const badge = typeBadges[alilitypeNum];
+              if (badge) {
+                const badgeWrapper = document.createElement('span');
+                const badgeImg = document.createElement('img');
+                badgeImg.src = badge.icon;
+                badgeImg.alt = badge.label;
+                badgeImg.loading = 'lazy';
+                badgeImg.decoding = 'async';
+                badgeWrapper.appendChild(badgeImg);
+                badgeWrapper.appendChild(document.createTextNode(badge.label));
+                tagSetEl.appendChild(badgeWrapper);
+              }
+            }
+
+            listFragment.appendChild(item);
           }
         }
 
         // 底層圖標
         const marker = new google.maps.Marker({
-          url: './lili.html?liliID=' + aZ,
+          url: './lili.html?liliID=' + sanitizedId,
           position: { lat: aLatitude, lng: aLongtitude },
           map,
           title: aName,
@@ -140,12 +185,12 @@ function initMap() {
 
         // 頂層頭像
         const markerTop = new google.maps.Marker({
-          url: './lili.html?liliID=' + aZ,
+          url: './lili.html?liliID=' + sanitizedId,
           position: { lat: aLatitude, lng: aLongtitude },
           map,
           title: aName,
           icon: {
-            url: './img/avatar_circle/' + aZ + '.png',
+            url: './img/avatar_circle/' + sanitizedId + '.png',
             scaledSize: new google.maps.Size(52, 52),
             anchor: new google.maps.Point(26, 95),
           }
@@ -156,16 +201,15 @@ function initMap() {
         gmarkers.push(marker);
         markersTop.push(alilitypeNum);
         gmarkersTop.push(markerTop);
-        markersUrl.push(aZ);
-        markersUrlTop.push(aZ);
+        markersUrl.push(sanitizedId);
+        markersUrlTop.push(sanitizedId);
 
         marker.addListener('click', function () { location.href = this.url; });
         markerTop.addListener('click', function () { location.href = this.url; });
       }
 
-      // 移除模板那一筆
-      if (rows.length > 0 && $(".lilisSet").length > 0) {
-        $(".lilisSet:first").remove();
+      if (listEl && listFragment.childNodes.length > 0) {
+        listEl.appendChild(listFragment);
       }
 
       checkLiliType();
