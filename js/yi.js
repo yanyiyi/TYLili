@@ -11,7 +11,7 @@ function GetURLParameter(sParam) {
 
 var lilis = [];
 var imglilitype = ['', '../img/icon_blue.png', '../img/icon_lightblue.png', '../img/icon_yellow.png', '../img/icon_red.png', '../img/icon_lime.png'];
-$.getJSON('https://spreadsheets.google.com/feeds/list/1vunxJbdBnE8tkz7FXPGNUuocVWTCUpyEm84kE-R58Q4/1/public/values?alt=json', function (dataLog) {
+$.getJSON('https://script.google.com/macros/s/AKfycbxscTjzWn9YTZ_Vmrrs-mB_DQZDrORmzlXdQrgL-2YxKkVYq9js4WlzM5zIAg8PYjPjVQ/exec', function (dataLog) {
 
         //        console.log("gJson");
         var i = GetURLParameter("artist") - 1;
