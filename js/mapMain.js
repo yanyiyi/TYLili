@@ -45,8 +45,8 @@ function initMap() {
                     $(".lilisSet:last .liName").text(aName);
                     $(".lilisSet:last .liImg").attr("src", avatarImg);
                     $(".lilisSet:last .tagSet").html(aWhen + "  " + aWhere + "<br/>");
-                    if (alilitype == 1) $(".lilisSet:last .tagSet").append("<img src='./img/mark_1.png'/>清代時期");
-                    if (alilitype == 2) $(".lilisSet:last .tagSet").append("<img src='./img/mark_2.png'/>日治時期");
+                    if (alilitype == 1) $(".lilisSet:last .tagSet").append("<img src='./img/mark_1.png'/>清國時期");
+                    if (alilitype == 2) $(".lilisSet:last .tagSet").append("<img src='./img/mark_2.png'/>日本時期");
                     if (alilitype == 3) $(".lilisSet:last .tagSet").append("<img src='./img/mark_3.png'/>國民政府來台");
                     if (alilitype == 4) $(".lilisSet:last .tagSet").append("<img src='./img/mark_4.png'/>城市蓬勃發展");
                     if (alilitype == 5) $(".lilisSet:last .tagSet").append("<img src='./img/mark_5.png'/>城市多元蛻變");
