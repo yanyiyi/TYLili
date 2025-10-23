@@ -39,8 +39,10 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/rwd.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./js/mapMain.js"></script>
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+    <script src="./js/mapMain.js" defer></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123979223-1"></script>
     <script>
@@ -115,7 +117,7 @@
         <div id="liliList">
             <a class="lilisSet warpRatio warpImg">
                 <div class="warpCenter">
-                    <img class="liImg" />
+                    <img class="liImg" loading="lazy" decoding="async" alt="LiLi 肖像" />
                 </div>
                 <div class="liTitleSet">
                     <h1 class="liName"></h1>
@@ -134,11 +136,11 @@
             <p class="modeMobile">指導單位・文化部、桃園市議會<br/>主辦單位・桃園市政府<br/>承辦單位・桃園市政府文化局<br/>協力單位・中平路故事館<br/>執行團隊・桃園市社區營造中心<br/>藝術家・張瑋倫、龔芸<br/>張瑋倫 All Right Resereved</p>
             <div class="fb-like" data-share="true" data-width="300px" data-show-faces="true">
             </div>
-            <a class="footerIcon" href="https://zl.tyc.land/LandArtTao"><img src="./img/logoLA.png" /></a>
-            <a class="footerIcon" href="https://zl.tyc.land/fb"><img src="./img/yi.png" /></a>
+            <a class="footerIcon" href="https://zl.tyc.land/LandArtTao"><img src="./img/logoLA.png" loading="lazy" decoding="async" alt="Land Art Tao Logo" /></a>
+            <a class="footerIcon" href="https://zl.tyc.land/fb"><img src="./img/yi.png" loading="lazy" decoding="async" alt="藝遊中壢上河圖" /></a>
         </footer>
     </section>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7xcgFQMcphI_gMTi3OwfF4fuhSFcuOys&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7xcgFQMcphI_gMTi3OwfF4fuhSFcuOys&callback=initMap" defer></script>
 </body>
 
 </html>
